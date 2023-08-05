@@ -1,5 +1,4 @@
 import { connectDB, sql } from '../database'
-import moment from 'moment'
 
 export const getUsers = async (req, res) => {
   try {
@@ -39,10 +38,6 @@ export const createUser = async (req, res) => {
   if(type === "admin") type = 1
   else if(type === "customer" || type === undefined) type = 2
   else {return res.status(400).json({msg: "UserType not exists"})}  
-  // parametros opcionales (phone, city,address)
-  // if(phone === undefined) phone = "NULL"
-  // if(city === undefined) city = "NULL"
-  // if(address === undefined) address = "NULL"
   // mostrar consola - parametros requeridos y opcionales
   console.log(username, email, password, type)
   console.log(phone, city, address)
